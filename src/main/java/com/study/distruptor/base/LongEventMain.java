@@ -14,7 +14,7 @@ import java.util.concurrent.TimeUnit;
 public class LongEventMain {
 
     public static void main(String[] args) {
-        ExecutorService executor = new ThreadPoolExecutor(0, Integer.MAX_VALUE, 0, TimeUnit.MILLISECONDS, new SynchronousQueue<Runnable>());
+        ExecutorService executor = new ThreadPoolExecutor(0, Integer.MAX_VALUE, 0, TimeUnit.MILLISECONDS, new SynchronousQueue<>());
         LongEventFactory factory = new LongEventFactory();
         int buffSize = 1024;
         //创建disruptor

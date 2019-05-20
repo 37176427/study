@@ -4,7 +4,7 @@ import com.lmax.disruptor.YieldingWaitStrategy;
 import com.lmax.disruptor.dsl.Disruptor;
 import com.lmax.disruptor.dsl.EventHandlerGroup;
 import com.lmax.disruptor.dsl.ProducerType;
-import generate1.Trade;
+import com.study.distruptor.generate1.Trade;
 
 import java.util.concurrent.*;
 

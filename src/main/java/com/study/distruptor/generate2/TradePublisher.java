@@ -2,7 +2,7 @@ package com.study.distruptor.generate2;
 
 import com.lmax.disruptor.EventTranslator;
 import com.lmax.disruptor.dsl.Disruptor;
-import generate1.Trade;
+import com.study.distruptor.generate1.Trade;
 
 import java.util.Random;
 import java.util.concurrent.CountDownLatch;

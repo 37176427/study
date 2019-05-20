@@ -1,7 +1,7 @@
 package com.study.distruptor.generate2;
 
 import com.lmax.disruptor.EventHandler;
-import generate1.Trade;
+import com.study.distruptor.generate1.Trade;
 
 public class Handler5 implements EventHandler<Trade> {
     @Override
