@@ -29,12 +29,13 @@ public class CuratorWatchr1 {
         //触发事件为创建与更新  删除并不触发
         cache.getListenable().addListener(new NodeCacheListener() {
             @Override
-            public void nodeChanged() throws Exception {
-                cache.getCurrentData().getPath();
+            public void nodeChanged() {
+                String msg = cache.getCurrentData().getPath();
+                System.out.println(msg);
             }
         });
 
-        //方式2   第三个参数为是否接收节点数据 false是不接收
+        //方式2   第三个参数为是否接收(缓存)节点数据 false是不接收
         PathChildrenCache cache2 = new PathChildrenCache(cf,"/super",true);
         //初始化时进行缓存监听
         cache2.start(PathChildrenCache.StartMode.POST_INITIALIZED_EVENT);

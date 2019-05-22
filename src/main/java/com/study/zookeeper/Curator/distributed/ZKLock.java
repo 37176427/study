@@ -1,4 +1,4 @@
-package com.study.zookeeper.Curator.Lock;
+package com.study.zookeeper.Curator.distributed;
 
 import org.apache.curator.RetryPolicy;
 import org.apache.curator.framework.CuratorFramework;
@@ -24,7 +24,7 @@ public class ZKLock {
         CuratorFramework cf = CuratorFrameworkFactory.builder().connectString(CONNECT_ADDR).sessionTimeoutMs(SESSION_OUTTIME).retryPolicy(retryPolicy).build();
         cf.start();
         //节点上临时的锁
-        InterProcessMutex lock = new InterProcessMutex(cf, "/super");
+        final InterProcessMutex lock = new InterProcessMutex(cf, "/super");
         final CountDownLatch countdown = new CountDownLatch(1);
         for (int i = 0; i < 10; i++) {
             new Thread(() -> {
