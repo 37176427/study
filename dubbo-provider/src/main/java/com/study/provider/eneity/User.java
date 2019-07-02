@@ -1,8 +1,10 @@
 package com.study.provider.eneity;
 
 import lombok.Data;
-import lombok.NonNull;
+import org.codehaus.jackson.annotate.JsonProperty;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 
 /**
@@ -12,7 +14,9 @@ import java.io.Serializable;
  **/
 @Data
 public class User implements Serializable {
-    @NonNull
     private String id;
+    @JsonProperty("username")//可以改变返回的json键名
+    @Size(min=6,max=50)//length
+    @NotNull
     private String name;
 }
