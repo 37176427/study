@@ -1,6 +1,6 @@
 package com.study.consumer;
 
-import com.study.provider.SampleService;
+import com.study.provider.service.SampleService;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.io.IOException;

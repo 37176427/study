@@ -1,4 +1,8 @@
-package com.study.provider;
+package com.study.provider.service.impl;
+
+import com.study.provider.eneity.User;
+import com.study.provider.service.SampleService;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,6 +12,9 @@ import java.util.List;
  * 作者 ：WYH
  * 时间 ：2019/5/22 15:30
  **/
+
+@Service("sampleService")
+@com.alibaba.dubbo.config.annotation.Service(protocol = {"dubbo"})
 public class SampleServiceImpl implements SampleService {
     @Override
     public String sayHello(String name) {

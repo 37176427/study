@@ -6,15 +6,16 @@
     http://www.springframework.org/schema/beans/spring-beans.xsd
     http://code.alibabatech.com/schema/dubbo
     http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
-    <!--具体的实现bean-->
-    <bean id="sampleService" class="com.study.provider.SampleServiceImpl"/>
     <!--提供方应用信息 用于计算依赖关系-->
-    <dubbo:application name="sample-provider"/>
+    <dubbo:application name="sample-provider" owner="programmer" organization="dubbox"/>
     <!--使用zookeeper注册中心暴露服务地址-->
     <dubbo:registry address="zookeeper://192.168.194.128:2181"/>
     <!--用dubbo协议在20880端口暴露服务-->
     <dubbo:protocol name="dubbo" port="20880"/>
+    <!--<dubbo:protocol name="dubbo" serialization="kryo" optimizer=""-->
     <!--声明需要暴露的服务接口 写操作可以设置retries=0 避免重复调用soa服务-->
-    <dubbo:service interface="com.study.provider.SampleService" retries="0" ref="sampleService"/>
+    <dubbo:service interface="com.study.provider.service.SampleService" retries="0" ref="sampleService"/>
+
+    <dubbo:annotation package="com.study.provider.service"/>
 
 </beans>

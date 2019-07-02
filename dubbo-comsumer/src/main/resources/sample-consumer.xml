@@ -13,7 +13,7 @@
 
     <dubbo:registry address="zookeeper://192.168.194.128:2181"/>
     <!--生成远程服务代理 可以像使用本地bean一样使用demoService 检查级联依赖关系设为false-->
-    <dubbo:reference interface="com.study.provider.SampleService"
+    <dubbo:reference interface="com.study.provider.service.SampleService"
         id="sampleService" check="false"/>
 
 </beans>

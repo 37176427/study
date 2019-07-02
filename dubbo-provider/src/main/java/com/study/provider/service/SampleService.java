@@ -1,4 +1,4 @@
-package com.study.provider;
+package com.study.provider.service;
 
 import java.util.List;
 

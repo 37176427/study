@@ -1,4 +1,4 @@
-package com.study.provider;
+package com.study.provider.eneity;
 
 import lombok.Data;
 
