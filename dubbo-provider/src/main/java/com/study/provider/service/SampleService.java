@@ -1,5 +1,7 @@
 package com.study.provider.service;
 
+import com.study.provider.eneity.Sample;
+
 import java.util.List;
 
 /**
@@ -9,6 +11,5 @@ import java.util.List;
  **/
 public interface SampleService {
     String sayHello(String name);
-    List getUser();
-
+    Sample getSample();
 }

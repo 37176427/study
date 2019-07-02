@@ -1,6 +1,7 @@
 package com.study.provider.service;
 
-import java.util.List;
+import com.study.provider.eneity.Sample;
+
 
 /**
  * 描述 ：服务接口 消费方要想使用必须有服务提供方的接口
@@ -10,6 +11,6 @@ import java.util.List;
  **/
 public interface SampleService {
     String sayHello(String name);
-    List getUser();
+    Sample getSample();
 
 }

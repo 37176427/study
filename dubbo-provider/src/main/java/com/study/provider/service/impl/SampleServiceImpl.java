@@ -1,11 +1,14 @@
 package com.study.provider.service.impl;
 
+import com.study.provider.eneity.Sample;
 import com.study.provider.eneity.User;
 import com.study.provider.service.SampleService;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * 描述 ：服务实现
@@ -22,24 +25,11 @@ public class SampleServiceImpl implements SampleService {
     }
 
     @Override
-    public List getUser() {
-        List list = new ArrayList();
-        User u1 = new User();
-        u1.setName("Jack");
-        u1.setAge(22);
-        u1.setSex("m");
-        User u2 = new User();
-        u2.setName("tom");
-        u2.setAge(20);
-        u2.setSex("m");
-        User u3 = new User();
-        u3.setName("rose");
-        u3.setAge(19);
-        u3.setSex("w");
-        list.add(u1);
-        list.add(u2);
-        list.add(u3);
-        return list;
+    public Sample getSample() {
+        Map<String,Integer> map = new HashMap<>();
+        map.put("person0",21);
+        map.put("person1",17);
+        return new Sample("person2",30,map);
     }
 
 }

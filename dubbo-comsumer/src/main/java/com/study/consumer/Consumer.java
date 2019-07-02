@@ -1,5 +1,6 @@
 package com.study.consumer;
 
+import com.study.provider.eneity.Sample;
 import com.study.provider.service.SampleService;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -18,8 +19,10 @@ public class Consumer {
         SampleService sampleService = (SampleService) context.getBean("sampleService");
         String hello = sampleService.sayHello("tom");
         System.out.println(hello);
-        //List users = sampleService.getUser();
-
+        Sample sample = sampleService.getSample();
+        System.out.println(sample.getAge());
+        System.out.println(sample.getName());
+        System.out.println(sample.getMap().get("person0"));
         System.in.read();
     }
 }
