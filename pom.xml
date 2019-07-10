@@ -32,6 +32,13 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter</artifactId>
+			<!--防止与storm1.2.2的日志框架冲突-->
+			<exclusions>
+				<exclusion>
+					<groupId>org.apache.logging.log4j</groupId>
+					<artifactId>log4j-to-slf4j</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 
 		<dependency>
@@ -222,7 +229,6 @@
 			<groupId>javax.servlet</groupId>
 			<artifactId>servlet-api</artifactId>
 			<version>2.5</version>
-			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.github.miemiedev</groupId>
@@ -255,7 +261,14 @@
 			<artifactId>dubbo</artifactId>
 			<version>2.6.6</version>
 		</dependency>
-    </dependencies>
+		<!-- https://mvnrepository.com/artifact/org.apache.storm/storm-core -->
+		<dependency>
+			<groupId>org.apache.storm</groupId>
+			<artifactId>storm-core</artifactId>
+			<version>1.2.2</version>
+		</dependency>
+
+	</dependencies>
 
 	<build>
 		<plugins>
