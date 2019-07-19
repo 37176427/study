@@ -1,10 +1,10 @@
-package com.study.storm.topology;
+package storm.topology;
 
-import com.study.storm.bolt.PrintBolt;
-import com.study.storm.bolt.WriteBolt;
-import com.study.storm.spout.PWSpout;
-import org.apache.storm.Config;
 import org.apache.storm.LocalCluster;
+import storm.bolt.PrintBolt;
+import storm.bolt.WriteBolt;
+import storm.spout.PWSpout;
+import org.apache.storm.Config;
 import org.apache.storm.StormSubmitter;
 import org.apache.storm.topology.TopologyBuilder;
 
@@ -13,11 +13,11 @@ import org.apache.storm.topology.TopologyBuilder;
  * 作者 ：WYH
  * 时间 ：2019/7/9 17:20
  **/
-public class PWTopology1 {
+public class PWTopology1{
 
     public static void main(String[] args) throws Exception {
         Config config = new Config();
-        config.setNumWorkers(1);//JVM数
+        config.setNumWorkers(2);//JVM数
         config.setDebug(false);
 
         TopologyBuilder builder = new TopologyBuilder();

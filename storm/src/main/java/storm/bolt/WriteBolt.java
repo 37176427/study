@@ -1,4 +1,4 @@
-package com.study.storm.bolt;
+package storm.bolt;
 
 import org.apache.storm.task.OutputCollector;
 import org.apache.storm.task.TopologyContext;
@@ -26,7 +26,7 @@ public class WriteBolt extends BaseRichBolt {
 
     private static final long serialVersionUID = 1L;
 
-    private final File file = new File("D:/storm/1.txt");
+    private final File file = new File("/test/1.txt");
 
     @Override
     public void prepare(Map map, TopologyContext topologyContext, OutputCollector outputCollector) {

@@ -1,4 +1,4 @@
-package com.study.storm.bolt;
+package storm.bolt;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
