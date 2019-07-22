@@ -29,7 +29,13 @@ public class PWSpout extends BaseRichSpout{
         MAP.put(1,"php");
         MAP.put(2,"python");
         MAP.put(3,"groovy");
-        MAP.put(4,"ruby");
+        MAP.put(4,"5");
+        MAP.put(5,"66");
+        MAP.put(6,"77");
+        MAP.put(7,"88");
+        MAP.put(8,"99");
+        MAP.put(9,"1010");
+        MAP.put(10,"111");
     }
 
     @Override
@@ -41,7 +47,7 @@ public class PWSpout extends BaseRichSpout{
     @Override
     public void nextTuple() {
         final Random r = new Random();
-        int i = r.nextInt(5);
+        int i = r.nextInt(10);
         try {
             Thread.sleep(500);
         } catch (InterruptedException e) {

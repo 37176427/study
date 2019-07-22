@@ -8,8 +8,6 @@ import org.apache.storm.tuple.Tuple;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.BufferedWriter;
-import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Map;
@@ -26,7 +24,7 @@ public class WriteBolt extends BaseRichBolt {
 
     private static final long serialVersionUID = 1L;
 
-    private final File file = new File("/test/1.txt");
+    private FileWriter fileWriter;
 
     @Override
     public void prepare(Map map, TopologyContext topologyContext, OutputCollector outputCollector) {
@@ -37,10 +35,9 @@ public class WriteBolt extends BaseRichBolt {
     public void execute(Tuple tuple) {
         String text = tuple.getStringByField("write");
         try {
-            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file,true));
-            bufferedWriter.append(text);
-            bufferedWriter.newLine();
-            bufferedWriter.flush();
+            if (fileWriter == null) fileWriter = new FileWriter("D:/"+this);
+            fileWriter.append(text).append("\r\n");
+            fileWriter.flush();
             log.info("[write] 写入文件。");
         } catch (IOException e) {
             e.printStackTrace();
