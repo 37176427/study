@@ -40,8 +40,7 @@ public class WordReportBolt extends BaseRichBolt {
     @Override
     public void cleanup(){
         System.out.println("------count ending......-----");
-        List<String> keys = new ArrayList<>();
-        keys.addAll(counts.keySet());
+        List<String> keys = new ArrayList<>(counts.keySet());
         for (String key:keys){
             System.out.println(key + ":" + counts.get(key));
         }
