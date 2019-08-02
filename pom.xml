@@ -10,7 +10,8 @@
 		<module>dubbo-provider</module>
 		<module>dubbo-comsumer</module>
 		<module>storm</module>
-	</modules>
+        <module>kafka</module>
+    </modules>
 	<packaging>pom</packaging>
 
 	<name>study demo</name>

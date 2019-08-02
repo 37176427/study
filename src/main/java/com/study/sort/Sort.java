@@ -1,34 +1,12 @@
 package com.study.sort;
 
+import org.apache.storm.command.list;
+
 import java.text.ParseException;
 import java.util.Arrays;
 
 //1.冒泡 2.插入 3.选择 4.快速 5.归并 6.希尔
 public class Sort {
-
-
-    public static void main(String[] args) throws ParseException {
-        Sort sort = new Sort();
-        int[] a = new int[]{10, 3, 5, 4, 2, 6, 7, 8};
-        //sort.fs(a, 0, a.length - 1);
-        sort.fastSort(a);
-        //sort.shellSort(a);
-        //sort.mergeSort(a, 0, a.length - 1);
-        System.out.println(Arrays.toString(a));
-    }
-
-    private void fs(int[] a, int i, int j) {
-        if (i > j) return;
-        int left = i, right = j, key = a[i];
-        while (left < right) {
-            while (left < right && a[right] > key) right--;
-            while (left < right && a[left] < key) left++;
-            if (left < right) swap(a, left, right);
-        }
-        swap(a, i, left);
-        fs(a, i, left - 1);
-        fs(a, left + 1, j);
-    }
 
 
     public void maopao(int[] array) {
@@ -226,10 +204,53 @@ public class Sort {
     }
 
     private void swap(int[] a, int i, int j) {
-        if (i == j) return;
+        //if (i == j) return;
         a[i] = a[i] ^ a[j];
         a[j] = a[i] ^ a[j];
         a[i] = a[i] ^ a[j];
         System.out.println("swap:" + a[j] + " <-> " + a[i]);
+    }
+
+    private void downAdjust(int[] a, int p, int length) {
+        int temp = a[p];//临时保存父节点的值
+        int c = p * 2 + 1;
+        while (c < length) {
+            if (c + 1 < length && a[c] < a[c + 1]) c++;//如果右节点大于左节点 指向右节点
+            if (a[p] >= a[c]) break;//如果父节点比两个子节点都大 结束循环 发生在第二次或以后遍历到该根节点时//todo:堆排序未理解透彻
+            a[p] = a[c];
+            p = c;
+            c = p * 2 + 1;
+        }
+        a[p] = temp;
+    }
+
+
+    public static void main(String[] args) throws ParseException {
+        Sort sort = new Sort();
+        int[] a = new int[]{1, 3, 5, 4, 2, 6, 7, 8};
+        //sort.fs(a, 0, a.length - 1);
+        //sort.fastSort(a);
+        //sort.swap(a, 0, 0);
+        //sort.downJust(a,0,a.length);
+        //sort.shellSort(a);
+        //sort.mergeSort(a, 0, a.length - 1);
+//        for (int i = (a.length - 2) / 2; i >= 0; i--) {//自底向上 从最后一个非叶子节点开始到根节点 构建好最大堆
+//            sort.downAdjust(a, i, a.length);
+//        }
+//
+//        for (int i = a.length - 1; i > 0; i--) {
+//            // 最后一个元素和第一元素进行交换
+//            int temp = a[i];
+//            a[i] = a[0];
+//            a[0] = temp;
+//            // 下沉调整最大堆
+//            sort.downAdjust(a, 0, i);
+//        }
+        // sort.upAjust(a);
+        System.out.println(Arrays.toString(a));
+//        for (int i = a.length / 2; i >= 0; i--) {
+//            sort.upAjust(a, i, a.length);
+//        }
+//        System.out.println(Arrays.toString(a));
     }
 }
