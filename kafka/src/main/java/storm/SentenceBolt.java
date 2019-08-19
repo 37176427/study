@@ -36,7 +36,7 @@ public class SentenceBolt extends BaseBasicBolt {
 			// word ends with '.' which means this is the end of
 			// the sentence publishes a sentence tuple
 			collector.emit(ImmutableList.of(
-					(Object) StringUtils.join(words, ' ')));
+					StringUtils.join(words, ' ')));
 
 			// and reset the words list.
 			words.clear();

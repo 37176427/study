@@ -216,7 +216,7 @@ public class Sort {
         int c = p * 2 + 1;
         while (c < length) {
             if (c + 1 < length && a[c] < a[c + 1]) c++;//如果右节点大于左节点 指向右节点
-            if (a[p] >= a[c]) break;//如果父节点比两个子节点都大 结束循环 发生在第二次或以后遍历到该根节点时//todo:堆排序未理解透彻
+            if (temp >= a[c]) break;//如果父节点比两个子节点都大 结束循环 发生在第二次或以后遍历到该根节点时
             a[p] = a[c];
             p = c;
             c = p * 2 + 1;
@@ -234,18 +234,18 @@ public class Sort {
         //sort.downJust(a,0,a.length);
         //sort.shellSort(a);
         //sort.mergeSort(a, 0, a.length - 1);
-//        for (int i = (a.length - 2) / 2; i >= 0; i--) {//自底向上 从最后一个非叶子节点开始到根节点 构建好最大堆
-//            sort.downAdjust(a, i, a.length);
-//        }
-//
-//        for (int i = a.length - 1; i > 0; i--) {
-//            // 最后一个元素和第一元素进行交换
-//            int temp = a[i];
-//            a[i] = a[0];
-//            a[0] = temp;
-//            // 下沉调整最大堆
-//            sort.downAdjust(a, 0, i);
-//        }
+        for (int i = (a.length - 2) / 2; i >= 0; i--) {//自底向上 从最后一个非叶子节点开始到根节点 构建好最大堆
+            sort.downAdjust(a, i, a.length);
+        }
+        System.out.println(Arrays.toString(a));
+        for (int i = a.length - 1; i > 0; i--) {
+            // 最后一个元素和第一元素进行交换
+            int temp = a[i];
+            a[i] = a[0];
+            a[0] = temp;
+            // 下沉调整最大堆
+            sort.downAdjust(a, 0, i);
+        }
         // sort.upAjust(a);
         System.out.println(Arrays.toString(a));
 //        for (int i = a.length / 2; i >= 0; i--) {
